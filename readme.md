@@ -2,7 +2,9 @@
 
 A full-stack NFT marketplace dApp that embeds an AI-powered chatbot capable of understanding crypto and executing blockchain actions like minting, buying, and transferring NFTs — deployed on the **BlockDAG Testnet**.
 
----
+**0x993Ec779f00D473dB2AA322acFE2Bc650b06c722 (Our Deployed Address on Blockdag Testnet)**
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 🚀 Features
 
@@ -27,11 +29,12 @@ A full-stack NFT marketplace dApp that embeds an AI-powered chatbot capable of u
 - Wallet login via MetaMask
 - EVM-compatible + BlockDAG ready
 
----
-
-## ⚙ Backend Setup (FastAPI + AI)
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ```bash
+
+**⚙ Backend Setup (FastAPI + AI)**
+
+
 cd backend
 python -m venv venv
 source venv/bin/activate
@@ -42,7 +45,7 @@ Runs on: http://localhost:8000
 
 
 
-🌐 Frontend Setup (React + ethers.js)
+**🌐 Frontend Setup (React + ethers.js)**
 bash
 Copy
 Edit
@@ -54,9 +57,27 @@ Runs on: http://localhost:5173
 
 
 
+Deploy Smart Contract with Hardhat
 
-📂 Update Environment Files
-Backend .env
+npx hardhat run scripts/deploy.js --network primordial
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+**IMPORTANT**
+
+frontend/src/config.js: your deployed contract address - 0x993Ec779f00D473dB2AA322acFE2Bc650b06c722 (Our Deployed Address on Blockdag Testnet)
+MarketplaceABI.js: full ABI from artifacts/
+.env: confirm PRIMORDIAL_RPC_URL and PRIVATE_KEY
+Copy or Update Frontend/Contracts/NFTMarketplace.json to Frontend/src/NFTMarket/contractABI/..
+Copy or Update only ABI "abi": [...] from NFTMarketplace to Frontend/src/NFTMarket/MarketplaceABI.js
+
+**📂 Update Environment Files**
+
+**Backend .env**
 
 USE_REMOTE_MODEL=True
 REMOTE_API_KEY=your-openrouter-api-key
@@ -66,33 +87,35 @@ REMOTE_DEFI_MODEL=meta-llama/llama-3.2-3b-instruct
 REMOTE_BITCOIN_MODEL=meta-llama/llama-3.3-70b-instruct
 
 
-Frontend .env
+**Frontend .env**
 
-PRIVATE_KEY=your-wallet-private-key  # optional if backend signs
-PRIMORDIAL_RPC_URL=https://rpc.primordial.bdagscan.com
-📜 Contract Deployment (BlockDAG Primordial Testnet)
-
-
-Deploy Smart Contract with Hardhat
-
-npx hardhat run scripts/deploy.js --network primordial
+PRIVATE_KEY=your-wallet-private-key  
+PRIMORDIAL_RPC_URL=​https://rpc.awakening.bdagscan.com
+📜 Contract Deployment (BlockDAG Awakening Network Testnet)
 
 
-Update these files:
-frontend/src/config.js: your deployed contract address
+**Firebase Setup**
 
-MarketplaceABI.js: full ABI from artifacts/
+Add Your Credentials by using Google Firebase -
+In ODIN/Frontend/client/src/auth/firebase.js
+const firebaseConfig = {
+  apiKey: "Your_apiKey",
+  authDomain: "Your_authDomain",
+  projectId: "Your_projectId",
+  storageBucket: "Your_storageBucket",
+  messagingSenderId: "Your_messagingSenderId",
+  appId: "Your_appId",
+};
 
-.env: confirm PRIMORDIAL_RPC_URL and PRIVATE_KEY
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+**🌍 Add BlockDAG to MetaMask (Testnet Setup)**
 
-🌍 Add BlockDAG to MetaMask (Testnet Setup)
 Ask testers to run the following to connect to the BlockDAG testnet:
 
-js
-Copy
-Edit
+
 await window.ethereum.request({
   method: 'wallet_addEthereumChain',
   params: [{
@@ -107,8 +130,10 @@ await window.ethereum.request({
     blockExplorerUrls: ['https://bdagscan.com'],
   }],
 });
-🧪 How to Test the App
-🖥️ Open the App
+
+
+
+To Check Run the App
 Go to http://localhost:5173
 
 🔌 Connect MetaMask to BlockDAG Testnet
@@ -118,7 +143,7 @@ Follow MetaMask setup above
 Ensure your wallet has BDAG tokens (faucet if available)
 
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 💬 Use Chatbot with These Commands:
 text
@@ -150,7 +175,7 @@ Withdraw balance
 
 View minting history
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 🧠 Technologies Used
 Layer	Stack
@@ -161,13 +186,29 @@ Blockchain	Solidity, Hardhat, BDAG
 Storage	Pinata (IPFS)
 Tools	MetaMask, CoinGecko API
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 📜 License
 MIT — feel free to fork, build, and improve!
 
+```
 
 
-🧠 Authors
-BlockDAG Hackathon 2025
-Project: ODIN - AI NFT Marketplace
+# Authors -
+
+<a href="https://github.com/darpannemade">
+  <img src="https://avatars.githubusercontent.com/u/73686650?s=50&v=4">Darpan Nemade
+</a>
+
+
+<a href="https://github.com/ItzVirAj">
+  <img src="https://avatars.githubusercontent.com/u/127103914?s=50&v=4">Viraj Mane
+</a>
+
+<a href="https://github.com/prathameshc09">
+  <img src="https://avatars.githubusercontent.com/u/115701556?s=40&v=4">Prathamesh Chaudhari
+</a>
+
+<a href="https://github.com/Anster133Q">
+  <img src="https://avatars.githubusercontent.com/u/144792352?s=40&v=4">Aniket Shankarwar
+</a>
